@@ -1,0 +1,11 @@
+Package: jitsi-meet-tokens
+Source: jitsi-meet-web
+Version: 1.0.1-1
+Architecture: all
+Maintainer: Jitsi Team <dev@jitsi.org>
+Installed-Size: 20
+Depends: debconf (>= 0.5) | debconf-2.0, prosody-trunk (>= 1nightly747) | prosody-0.11 | prosody (>= 0.11.2), libssl-dev, luarocks, jitsi-meet-prosody
+Section: net
+Priority: extra
+Homepage: https://jitsi.org/meet
+Description: Prosody token authentication plugin for Jitsi Meet

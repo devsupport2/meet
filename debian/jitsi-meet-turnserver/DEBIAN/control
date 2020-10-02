@@ -1,0 +1,13 @@
+Package: jitsi-meet-turnserver
+Source: jitsi-meet-web
+Version: 1.0.1-1
+Architecture: all
+Maintainer: Jitsi Team <dev@jitsi.org>
+Installed-Size: 27
+Pre-Depends: jitsi-meet-web-config
+Depends: debconf (>= 0.5) | debconf-2.0, nginx (>= 1.13.10) | nginx-full (>= 1.13.10) | nginx-extras (>= 1.13.10), jitsi-meet-prosody, coturn, dnsutils
+Breaks: apache2
+Section: net
+Priority: extra
+Homepage: https://jitsi.org/meet
+Description: Configures coturn to be used with Jitsi Meet

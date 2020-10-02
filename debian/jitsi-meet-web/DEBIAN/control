@@ -1,0 +1,15 @@
+Package: jitsi-meet-web
+Version: 1.0.1-1
+Architecture: all
+Maintainer: Jitsi Team <dev@jitsi.org>
+Installed-Size: 42210
+Replaces: jitsi-meet (<= 1.0.1525-1)
+Section: net
+Priority: extra
+Homepage: https://jitsi.org/meet
+Description: WebRTC JavaScript video conferences
+ Jitsi Meet is a WebRTC JavaScript application that uses Jitsi
+ Videobridge to provide high quality, scalable video conferences.
+ .
+ It is a web interface to Jitsi Videobridge for audio and video
+ forwarding and relaying.

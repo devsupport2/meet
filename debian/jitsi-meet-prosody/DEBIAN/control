@@ -1,0 +1,20 @@
+Package: jitsi-meet-prosody
+Source: jitsi-meet-web
+Version: 1.0.1-1
+Architecture: all
+Maintainer: Jitsi Team <dev@jitsi.org>
+Installed-Size: 197
+Depends: openssl, prosody | prosody-trunk | prosody-0.11
+Replaces: jitsi-meet-tokens
+Section: net
+Priority: extra
+Homepage: https://jitsi.org/meet
+Description: Prosody configuration for Jitsi Meet
+ Jitsi Meet is a WebRTC JavaScript application that uses Jitsi
+ Videobridge to provide high quality, scalable video conferences.
+ .
+ It is a web interface to Jitsi Videobridge for audio and video
+ forwarding and relaying.
+ .
+ This package contains configuration for Prosody to be used with
+ Jitsi Meet.

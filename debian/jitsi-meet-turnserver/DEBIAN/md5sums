@@ -1,0 +1,5 @@
+1d5736bd4e4124f26dd536352504a88a  usr/share/doc/jitsi-meet-turnserver/changelog.Debian.gz
+670f81b855b4ebc5f03ccb278d5b203f  usr/share/doc/jitsi-meet-turnserver/copyright
+f3db0e9936c8ca81155a432785ac2dcb  usr/share/jitsi-meet-turnserver/coturn-certbot-deploy.sh
+2659f436f29de1d8f411f61f8bcdfcdb  usr/share/jitsi-meet-turnserver/jitsi-meet.conf
+6efd7938221e741b4e9256b09bedf921  usr/share/jitsi-meet-turnserver/turnserver.conf

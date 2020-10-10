@@ -1,7 +1,7 @@
 // @flow
 
 import React, { Component } from 'react';
-import { SafeAreaView, ScrollView, Text } from 'react-native';
+import { SafeAreaView, ScrollView, Text, Image } from 'react-native';
 
 import { Avatar } from '../../base/avatar';
 import { IconInfo, IconSettings, IconHelp } from '../../base/icons';
@@ -22,15 +22,16 @@ import { setSideBarVisible } from '../actions';
 import SideBarItem from './SideBarItem';
 import styles, { SIDEBAR_AVATAR_SIZE } from './styles';
 
+
 /**
  * The URL at which the privacy policy is available to the user.
  */
-const PRIVACY_URL = 'https://jitsi.org/meet/privacy';
+const PRIVACY_URL = 'https://vatchit.in/privacyPolicy.html';
 
 /**
  * The URL at which the terms (of service/use) are available to the user.
  */
-const TERMS_URL = 'https://jitsi.org/meet/terms';
+const TERMS_URL = 'https://vatchit.in';
 
 type Props = {
 
@@ -101,19 +102,22 @@ class WelcomePageSideBar extends Component<Props> {
                             icon = { IconSettings }
                             label = 'settings.title'
                             onPress = { this._onOpenSettings } />
-                        <SideBarItem
+                        {/* <SideBarItem
                             icon = { IconInfo }
                             label = 'welcomepage.terms'
-                            url = { TERMS_URL } />
+                            url = { TERMS_URL } /> */}
                         <SideBarItem
                             icon = { IconInfo }
                             label = 'welcomepage.privacy'
                             url = { PRIVACY_URL } />
-                        <SideBarItem
+                        {/* <SideBarItem
                             icon = { IconHelp }
                             label = 'welcomepage.getHelp'
-                            onPress = { this._onOpenHelpPage } />
+                            onPress = { this._onOpenHelpPage } /> */}
                     </ScrollView>
+                    <Image source={{uri:'https://vatchit.in/assets/images/Logo-VatChit.png'}}
+                    style = {{ width: 245, height: 52}}
+                    />
                 </SafeAreaView>
             </SlidingView>
         );

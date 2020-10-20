@@ -1,4 +1,4 @@
-package org.jitsi.meet;
+package net.ultrainfotech.vatchit;
 
 import android.net.Uri;
 import android.util.Log;
@@ -7,6 +7,7 @@ import com.crashlytics.android.Crashlytics;
 import com.google.firebase.dynamiclinks.FirebaseDynamicLinks;
 import io.fabric.sdk.android.Fabric;
 
+import org.jitsi.meet.sdk.BuildConfig;
 import org.jitsi.meet.sdk.JitsiMeet;
 import org.jitsi.meet.sdk.JitsiMeetActivity;
 

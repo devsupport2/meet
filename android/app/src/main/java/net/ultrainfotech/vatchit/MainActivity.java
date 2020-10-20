@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package org.jitsi.meet;
+package net.ultrainfotech.vatchit;
 
 import android.content.BroadcastReceiver;
 import android.content.Context;
@@ -30,6 +30,7 @@ import android.util.Log;
 import android.view.KeyEvent;
 import androidx.annotation.Nullable;
 
+import org.jitsi.meet.sdk.BuildConfig;
 import org.jitsi.meet.sdk.JitsiMeet;
 import org.jitsi.meet.sdk.JitsiMeetActivity;
 import org.jitsi.meet.sdk.JitsiMeetConferenceOptions;

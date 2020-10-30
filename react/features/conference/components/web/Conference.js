@@ -27,6 +27,9 @@ import type { AbstractProps } from '../AbstractConference';
 import Labels from './Labels';
 import { default as Notice } from './Notice';
 
+import { setJWT } from '../../../base/jwt';
+import { jitsiLocalStorage } from '@jitsi/js-utils';
+
 declare var APP: Object;
 declare var config: Object;
 declare var interfaceConfig: Object;
@@ -132,6 +135,17 @@ class Conference extends AbstractConference<Props, *> {
     componentDidMount() {
         document.title = `${this.props._roomName} | ${interfaceConfig.APP_NAME}`;
         this._start();
+
+        if (jitsiLocalStorage.getItem("token") == null)
+        {
+            window.location.href="/Login";
+            console.log("User Is Not Authenticated");
+        }else{
+            let userAuth = APP.store.dispatch(setJWT(jitsiLocalStorage.getItem("token")));
+            userAuth.then(function(result) {
+                console.log("User Is Authenticated");
+            });
+        }
     }
 
     /**

@@ -16,6 +16,9 @@ import {
     isWelcomePageUserEnabled
 } from '../welcome';
 
+
+import {Login, Register}from "../login-signup";
+import { LandingPage } from '../LandingPage';
 /**
  * Object describing application route.
  *
@@ -59,7 +62,8 @@ function _getMobileRoute(state): Promise<Route> {
     if (isRoomValid(state['features/base/conference'].room)) {
         route.component = Conference;
     } else if (isWelcomePageAppEnabled(state)) {
-        route.component = WelcomePage;
+        //route.component = WelcomePage;
+        route.component = LandingPage;
     } else {
         route.component = BlankPage;
     }
@@ -98,7 +102,19 @@ function _getWebConferenceRoute(state): ?Promise<Route> {
             if (deepLinkComponent) {
                 route.component = deepLinkComponent;
             } else if (isSupportedBrowser()) {
-                route.component = Conference;
+                let path = window.location.pathname;
+               if(path == "/Login"){
+                route.component = Login;
+                }
+                else if(path == "/Register"){
+                    route.component = Register;
+                    }
+                else if(path == "/Schedule"){
+                    route.component = Schedule;
+                    }
+                else {
+                    route.component = Conference;
+                }
             } else {
                 route.component = UnsupportedDesktopBrowser;
             }
@@ -118,7 +134,8 @@ function _getWebWelcomePageRoute(state): Promise<Route> {
 
     if (isWelcomePageUserEnabled(state)) {
         if (isSupportedBrowser()) {
-            route.component = WelcomePage;
+            //route.component = WelcomePage;
+            route.component = LandingPage;
         } else {
             route.component = UnsupportedDesktopBrowser;
         }

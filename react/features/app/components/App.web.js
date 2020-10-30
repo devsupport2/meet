@@ -25,12 +25,23 @@ export class App extends AbstractApp {
      * @override
      */
     _createMainElement(component, props) {
-        return (
-            <AtlasKitThemeProvider mode = 'dark'>
-                <ChromeExtensionBanner />
-                { super._createMainElement(component, props) }
-            </AtlasKitThemeProvider>
-        );
+        let path = window.location.pathname;
+        if(path == "/" || path == "/Register" || path == "/Login" || path == "/Schedule")
+        {
+            return (
+                <div>
+                    { super._createMainElement(component, props) }
+                </div>
+            );
+        }
+        else{
+            return (
+                <AtlasKitThemeProvider mode = 'dark'>
+                    <ChromeExtensionBanner />
+                    { super._createMainElement(component, props) }
+                </AtlasKitThemeProvider>
+            );
+        }
     }
 
     /**

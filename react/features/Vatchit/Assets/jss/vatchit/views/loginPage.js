@@ -109,9 +109,13 @@ const signupPageStyle = {
     textAlign: "center"
   },
 
-  footerText: {
-    color: "#495057",
-    padding:"70px"
+  footerHelper: {
+    position: "absolute",
+    display: "block",
+    textAlign: "center",
+    margin: "0 auto",
+    width: "100%",
+    padding: "20px 0px 0px 0px"
   }
 };
 

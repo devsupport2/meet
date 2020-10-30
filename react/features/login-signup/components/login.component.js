@@ -89,10 +89,11 @@ var ct = props.ctr;
 		        Continue
 		      </Button>
         </CardFooter>
-                   
-                  <Link href="/Register" className={classes.footerText}>
-                        {"Don't have an account? Signup"}
-                  </Link>
+                   <div className={classes.footerHelper}>
+                    <Link href="/Register" className={classes.title}>
+                          {"Don't have an account? Signup"}
+                    </Link>
+                  </div>
                 </form>
               </Card>
             </GridItem>
@@ -146,10 +147,10 @@ var ct = props.ctr;
 		      >
 		        Login Using OTP
 		      </Button>
-          <div className={classes.title}>
-            <a className={classes.title} href="#">Forgot password</a> | <a className={classes.title} href="/Login">Change user</a>
-          </div>
                   </CardBody>
+                  <div className={classes.footerHelper}>
+                    <a className={classes.title} href="#">Forgot password</a> | <a className={classes.title} href="/Login">Change user</a>
+                  </div>
                 </form>
               </Card>
             </GridItem>

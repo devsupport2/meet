@@ -141,10 +141,11 @@ var ct = props.ctr;
 		        Sign Up
 		      </Button>
         </CardFooter>
-                   
-                  <Link href="/Login" className={classes.footerText}>
+                <div className={classes.footerHelper}>
+                  <Link href="/Login" className={classes.title}>
                         {"Already have an account? Login"}
                   </Link>
+                </div>
                 </form>
               </Card>
             </GridItem>

@@ -125,7 +125,8 @@ const infoCardHeader = {
 const primaryCardHeader = {
   color: "#fff",
   //background: "linear-gradient(80deg, #9FD550, #80b533)",
-  background: "#dafbff",
+  //background: "#dafbff",
+  background: '#f5f5f5',
   //...primaryBoxShadow
   ...infoBoxShadow
 };

@@ -48,7 +48,7 @@ var ct = props.ctr;
   const classes = useStyles();
   const { ...rest } = props;
   document.title = "Vatchit | Register";
-  document.body.style.backgroundColor = "#dafbff";
+  document.body.style.backgroundColor = "#f5f5f5";
   document.body.style.overflow = "auto";
   return (
     <div>

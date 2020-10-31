@@ -36,7 +36,7 @@ const useStyles = makeStyles(styles);
   const classes = useStyles();
   const { ...rest } = props;
   //document.body.style.backgroundColor = "#d9d9d9";
-  document.body.style.backgroundColor = "#dafbff";
+  document.body.style.backgroundColor = "#f5f5f5";
   document.body.style.overflow = "auto";
   return (
     <div>

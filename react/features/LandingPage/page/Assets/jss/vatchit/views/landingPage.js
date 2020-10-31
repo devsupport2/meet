@@ -30,6 +30,12 @@ const landingPageStyle = {
   startMeetingButton: {
     backgroundColor: "#0EDFF7"
   },
+  startMeetingButton2: {
+    backgroundColor: "#9FD550"
+  },
+  getMeetingId:{
+    paddingLeft:"10%"
+  },
   CreateButton: {
     backgroundColor: "#0EDFF7",
     marginTop: "12%"

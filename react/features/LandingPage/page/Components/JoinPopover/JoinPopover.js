@@ -9,13 +9,15 @@ import GridItem from "../../Components/Grid/GridItem.js";
 import styles from "../../Assets/jss/vatchit/views/landingPage.js";
 
 const useStyles = makeStyles(styles);
-
+var buttonLabel;
 export default function SimplePopover() {
   const classes = useStyles();
   const [anchorEl, setAnchorEl] = React.useState(null);
 
   const handleClick = (event) => {
     setAnchorEl(event.currentTarget);
+    //console.log("ffff"+event.currentTarget.title);
+    buttonLabel = event.currentTarget.title;
   };
 
   const handleClose = () => {
@@ -23,9 +25,9 @@ export default function SimplePopover() {
   };
 
   const CreateJoinFunc = () => {
-    if (localStorage.getItem("token") == null)
+    if (localStorage.getItem("token") == null && buttonLabel == "Create")
     {
-        window.location.href = "/";
+        window.location.href = "/Login";
     }else
     {
         var meet = document.getElementById("MeetingId").value;
@@ -36,7 +38,6 @@ export default function SimplePopover() {
 
   const open = Boolean(anchorEl);
   const id = open ? 'simple-popover' : undefined;
-
   return (
     <div>
       <Button
@@ -47,11 +48,27 @@ export default function SimplePopover() {
                 rel="noopener noreferrer"
                 onClick={handleClick}
                 round
+                title="Create"
               >
                 <i className="fas fa-play" /> &nbsp;
                 Start Meeting
               </Button>
-      <Popover
+      <span style={{color:"#545454"}}>&nbsp;OR&nbsp;</span>
+      <Button
+                aria-describedby={id}
+                variant="contained"
+                className={classes.startMeetingButton2}
+                size="lg"
+                rel="noopener noreferrer"
+                onClick={handleClick}
+                round
+                title="Join"
+              >
+                <i className="fas fa-play" /> &nbsp;
+                Join Meeting
+              </Button>
+
+              <Popover
         id={id}
         open={open}
         anchorEl={anchorEl}
@@ -67,10 +84,10 @@ export default function SimplePopover() {
       >
         <div className={classes.JoinText}>
         <GridContainer>
-        <GridItem xs={1} sm={1} md={1}></GridItem>
-        <GridItem xs={5} sm={5} md={5}>
+        {/* <GridItem xs={1} sm={1} md={1}></GridItem> */}
+        <GridItem xs={6} sm={6} md={6} className={classes.getMeetingId}>
             <CustomInput
-                  className={classes.getMeetingId}
+                  
                   labelText="Meeting ID"
                   id="MeetingId"
                 />
@@ -82,7 +99,7 @@ export default function SimplePopover() {
                 size="md"
                 onClick={CreateJoinFunc}
               >
-                Create / Join
+                {buttonLabel}
               </Button>
         </GridItem>
          </GridContainer>

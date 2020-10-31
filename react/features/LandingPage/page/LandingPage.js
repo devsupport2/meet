@@ -3,6 +3,7 @@ import React, { Component } from "react";
 import classNames from "classnames";
 // @material-ui/core components
 import { makeStyles } from "@material-ui/core/styles";
+import Hidden from '@material-ui/core/Hidden';
 
 // @material-ui/icons
 
@@ -52,7 +53,8 @@ const useStyles = makeStyles(styles);
         }}
         {...rest}
       />
-      <Parallax image={landingBG}>
+      {/* <Parallax image={landingBG}> */}
+      <Parallax>
         <div className={classes.container}>
           <GridContainer>
             <GridItem xs={12} sm={12} md={6}>
@@ -62,16 +64,11 @@ const useStyles = makeStyles(styles);
               </h4>
               <br />
               <JoinPopover />
-              {/* <Button
-                className={classes.startMeetingButton}
-                size="lg"
-                href="#"
-                rel="noopener noreferrer"
-                round
-              >
-                <i className="fas fa-play" /> &nbsp;
-                Start a new Meeting
-              </Button> */}
+            </GridItem>
+            <GridItem md={6} >
+              <Hidden mdDown>
+                <img src={landingBG} style={{ width: "115%", marginTop: "10%"}}/>
+              </Hidden>
             </GridItem>
           </GridContainer>
         </div>

@@ -128,7 +128,8 @@ const primaryCardHeader = {
   //background: "#dafbff",
   background: '#f5f5f5',
   //...primaryBoxShadow
-  ...infoBoxShadow
+  boxShadow:
+  "0 12px 20px -10px rgb(123 123 123 / 28%), 0 4px 20px 0px rgba(0, 0, 0, 0.12), 0 7px 8px -5px rgb(226 226 226 / 20%)"
 };
 const roseCardHeader = {
   color: "#fff",

@@ -5,12 +5,12 @@ import { makeStyles } from "@material-ui/core/styles";
 // @material-ui/icons
 
 // core components
-import GridContainer from "../Components/Grid/GridContainer.js";
-import GridItem from "../Components/Grid/GridItem.js";
-import CustomInput from "../Components/CustomInput/CustomInput.js";
-import Button from "../Components/CustomButtons/Button.js";
+import GridContainer from "../../../Vatchit/Components/Grid/GridContainer.js";
+import GridItem from "../../../Vatchit/Components/Grid/GridItem.js";
+import CustomInput from "../../../Vatchit/Components/CustomInput/CustomInput.js";
+import Button from "../../../Vatchit/Components/CustomButtons/Button.js";
 
-import styles from "../Assets/jss/vatchit/views/landingPageSections/workStyle.js";
+import styles from "../../../Vatchit/Assets/jss/vatchit/views/landingPageSections/workStyle.js";
 
 const useStyles = makeStyles(styles);
 

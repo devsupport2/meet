@@ -3,11 +3,12 @@ import React from "react";
 import { makeStyles } from "@material-ui/core/styles";
 
 // core components
-import GridContainer from "../Components/Grid/GridContainer.js";
-import GridItem from "../Components/Grid/GridItem.js";
-import InfoArea from "../Components/InfoArea/InfoArea.js";
+import GridContainer from "../../../Vatchit/Components/Grid/GridContainer.js";
+import GridItem from "../../../Vatchit/Components/Grid/GridItem.js";
+import InfoArea from "../../../Vatchit/Components/InfoArea/InfoArea.js";
 
-import styles from "../Assets/jss/vatchit/views/landingPageSections/productStyle.js";
+
+import styles from "../../../Vatchit/Assets/jss/vatchit/views/landingPageSections/productStyle.js";
 
 const Exhibition = "/images/img/Exhibitions.png";
 const ConferenceRooms = "/images/img/Conference-Rooms.png";

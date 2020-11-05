@@ -19,6 +19,7 @@ import {
 
 import {Login, Register}from "../login-signup";
 import { LandingPage } from '../LandingPage';
+import { Schedule } from '../schedule';
 /**
  * Object describing application route.
  *

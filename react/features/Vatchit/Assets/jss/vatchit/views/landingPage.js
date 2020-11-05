@@ -10,15 +10,35 @@ const landingPageStyle = {
     ...title,
     display: "inline-block",
     position: "relative",
-    marginTop: "30px",
     minHeight: "32px",
-    color: "#FFFFFF",
+    color: "#9FD550",
+    textDecoration: "none",
+    fontFamily: '"Roboto","Helvetica","Arial","sans-serif"',
+    fontSize: "54px",
+    lineHeight: "54px",
+  },
+  title1: {
+    color: "#0EDFF7",
     textDecoration: "none"
   },
   subtitle: {
     fontSize: "1.313rem",
     maxWidth: "500px",
-    margin: "10px auto 0"
+    color: "#545454",
+    fontWeight: "200"
+  },
+  startMeetingButton: {
+    backgroundColor: "#0EDFF7"
+  },
+  startMeetingButton2: {
+    backgroundColor: "#9FD550"
+  },
+  getMeetingId:{
+    paddingLeft:"10%"
+  },
+  CreateButton: {
+    backgroundColor: "#0EDFF7",
+    marginTop: "12%"
   },
   main: {
     background: "#FFFFFF",

@@ -2,7 +2,7 @@ import { container, primaryColor } from "../vatchit.js";
 
 const footerStyle = {
   block: {
-    color: "inherit",
+    color: "#545454",
     padding: "0.9375rem",
     fontWeight: "500",
     fontSize: "12px",
@@ -14,12 +14,15 @@ const footerStyle = {
   },
   left: {
     float: "left!important",
-    display: "block"
+    display: "block",
+    fontSize: "16px"
   },
   right: {
     padding: "15px 0",
     margin: "0",
-    float: "right!important"
+    float: "right!important",
+    color: "#3c4858!important",
+    fontSize: "16px"
   },
   footer: {
     padding: "0.9375rem 0",

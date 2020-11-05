@@ -8,17 +8,17 @@ import Hidden from '@material-ui/core/Hidden';
 // @material-ui/icons
 
 // core components
-import Header from "./Components/Header/Header.js";
-import Footer from "./Components/Footer/Footer.js";
-import GridContainer from "./Components/Grid/GridContainer.js";
-import GridItem from "./Components/Grid/GridItem.js";
-import Button from "./Components/CustomButtons/Button.js";
-import HeaderLinks from "./Components/Header/HeaderLinks.js";
-import Parallax from "./Components/Parallax/Parallax.js";
+import Header from "../../Vatchit/Components/Header/Header.js";
+import Footer from "../../Vatchit/Components/Footer/Footer.js";
+import GridContainer from "../../Vatchit/Components/Grid/GridContainer.js";
+import GridItem from "../../Vatchit/Components/Grid/GridItem.js";
+import Button from "../../Vatchit/Components/CustomButtons/Button.js";
+import HeaderLinks from "../../Vatchit/Components/Header/HeaderLinks.js";
+import Parallax from "../../Vatchit/Components/Parallax/Parallax.js";
 
-import JoinPopover from "./Components/JoinPopover/JoinPopover.js";
+import JoinPopover from "../../Vatchit/Components/JoinPopover/JoinPopover.js";
 
-import styles from "./Assets/jss/vatchit/views/landingPage.js";
+import styles from "../../Vatchit/Assets/jss/vatchit/views/landingPage.js";
 
 // Sections for this page
 import ProductSection from "./Sections/ProductSection.js";

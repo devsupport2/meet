@@ -7,12 +7,12 @@ import { makeStyles } from "@material-ui/core/styles";
 // @material-ui/icons
 
 // core components
-import GridContainer from "../Components/Grid/GridContainer.js";
-import GridItem from "../Components/Grid/GridItem.js";
-import Card from "../Components/Card/Card.js";
-import CardFooter from "../Components/Card/CardFooter.js";
+import GridContainer from "../../../Vatchit/Components/Grid/GridContainer.js";
+import GridItem from "../../../Vatchit/Components/Grid/GridItem.js";
+import Card from "../../../Vatchit/Components/Card/Card.js";
+import CardFooter from "../../../Vatchit/Components/Card/CardFooter.js";
 
-import styles from "../Assets/jss/vatchit/views/landingPageSections/appPromoStyle.js";
+import styles from "../../../Vatchit/Assets/jss/vatchit/views/landingPageSections/appPromoStyle.js";
 
 const usage = "/images/img/Usage.png";
 const about1 = "/images/img/about-icon-01.png";

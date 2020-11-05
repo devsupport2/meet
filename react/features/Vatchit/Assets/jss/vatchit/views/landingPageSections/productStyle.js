@@ -1,4 +1,4 @@
-import { title } from "assets/jss/material-kit-react.js";
+import { title } from "../../../vatchit.js";
 
 const productStyle = {
   section: {
@@ -10,10 +10,15 @@ const productStyle = {
     marginBottom: "1rem",
     marginTop: "30px",
     minHeight: "32px",
-    textDecoration: "none"
+    textDecoration: "none",
+    fontSize: "2.25rem"
   },
   description: {
-    color: "#999"
+    color: "#999",
+    fontSize: "1.0625rem",
+    lineHeight: "1.55em",
+    marginTop: "10px",
+    fontWeight: "300"
   }
 };
 

@@ -6,7 +6,7 @@ import classNames from "classnames";
 // @material-ui/core components
 import { makeStyles } from "@material-ui/core/styles";
 
-import styles from "assets/jss/material-kit-react/components/infoStyle.js";
+import styles from "../../Assets/jss/vatchit/infoStyle.js";
 
 const useStyles = makeStyles(styles);
 
@@ -25,7 +25,8 @@ export default function InfoArea(props) {
   return (
     <div className={classes.infoArea}>
       <div className={iconWrapper}>
-        <props.icon className={iconClasses} />
+        {/* <props.icon className={iconClasses} /> */}
+        <img src={props.icon}/>
       </div>
       <div className={classes.descriptionWrapper}>
         <h4 className={classes.title}>{title}</h4>

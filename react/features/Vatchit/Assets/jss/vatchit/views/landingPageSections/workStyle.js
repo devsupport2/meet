@@ -1,4 +1,4 @@
-import { title } from "assets/jss/material-kit-react.js";
+import { title } from "../../../vatchit.js";
 
 const workStyle = {
   section: {
@@ -10,11 +10,14 @@ const workStyle = {
     marginTop: "30px",
     minHeight: "32px",
     textDecoration: "none",
-    textAlign: "center"
+    textAlign: "center",
+    fontSize: "36px"
   },
   description: {
     color: "#999",
-    textAlign: "center"
+    textAlign: "center",
+    fontSize: "18px",
+    fontWeight: "300"
   },
   textCenter: {
     textAlign: "center"

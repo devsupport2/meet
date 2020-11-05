@@ -1,7 +1,6 @@
 import { defaultFont } from "../vatchit.js";
 
-import tooltip from "tooltipsStyle.js";
-
+import tooltip from "./tooltipsStyle.js";
 const headerLinksStyle = theme => ({
   list: {
     ...defaultFont,
@@ -11,11 +10,11 @@ const headerLinksStyle = theme => ({
     listStyle: "none",
     paddingTop: "0",
     paddingBottom: "0",
-    color: "inherit"
+    color: "#545454"
   },
   listItem: {
     float: "left",
-    color: "inherit",
+    color: "#545454",
     position: "relative",
     display: "block",
     width: "auto",
@@ -36,8 +35,14 @@ const headerLinksStyle = theme => ({
   listItemText: {
     padding: "0 !important"
   },
+  img: {
+    width: "40px",
+    height: "40px",
+    borderRadius: "50%",
+    marginTop: "-25%"
+  },
   navLink: {
-    color: "inherit",
+    color: "#545454",
     position: "relative",
     padding: "0.9375rem",
     fontWeight: "400",
@@ -49,7 +54,7 @@ const headerLinksStyle = theme => ({
     margin: "0px",
     display: "inline-flex",
     "&:hover,&:focus": {
-      color: "inherit",
+      color: "#545454",
       background: "rgba(200, 200, 200, 0.2)"
     },
     [theme.breakpoints.down("sm")]: {
@@ -64,7 +69,7 @@ const headerLinksStyle = theme => ({
     }
   },
   notificationNavLink: {
-    color: "inherit",
+    color: "#545454",
     padding: "0.9375rem",
     fontWeight: "400",
     fontSize: "12px",
@@ -87,7 +92,7 @@ const headerLinksStyle = theme => ({
     display: "inline-flex"
   },
   navLinkActive: {
-    color: "inherit",
+    color: "#545454",
     backgroundColor: "rgba(255, 255, 255, 0.1)"
   },
   icons: {
@@ -102,7 +107,7 @@ const headerLinksStyle = theme => ({
   },
   dropdownLink: {
     "&,&:hover,&:focus": {
-      color: "inherit",
+      color: "#545454",
       textDecoration: "none",
       display: "block",
       padding: "10px 20px"

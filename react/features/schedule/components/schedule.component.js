@@ -5,13 +5,19 @@ import { makeStyles } from "@material-ui/core/styles";
 
 import Link from '@material-ui/core/Link';
 import InputAdornment from "@material-ui/core/InputAdornment";
+import Grid from "@material-ui/core/Grid";
+import Avatar from "@material-ui/core/Avatar";
+import Divider from '@material-ui/core/Divider';
 // @material-ui/icons
-import Email from "@material-ui/icons/Email";
-import People from "@material-ui/icons/People";
-import Phone from "@material-ui/icons/Phone";
+import Share from "@material-ui/icons/Share";
+
 import Check from "@material-ui/icons/Check";
 import Warning from "@material-ui/icons/Warning";
-import Grid from '@material-ui/core/Grid';
+
+import List from '@material-ui/core/List';
+import ListItem from '@material-ui/core/ListItem';
+import ListItemText from '@material-ui/core/ListItemText';
+import ListItemAvatar from '@material-ui/core/ListItemAvatar';
 // core components
 import GridContainer from "../../Vatchit/Components/Grid/GridContainer.js";
 import GridItem from "../../Vatchit/Components/Grid/GridItem.js";
@@ -65,12 +71,6 @@ var ct = props.ctr;
   //ct.refereshScheduleList();
   const textAreaRef = useRef(null);
 
-  function copyToClipboard(e) {
-    textAreaRef.current.select();
-    console.log("Copied to clipboard");
-    document.execCommand('copy');
-  };
-
   return (
     <div>
       <Header
@@ -94,9 +94,6 @@ var ct = props.ctr;
                   <h1 className={classes.title}>Schedule</h1>
                     <GridContainer justify="center">
                       <GridItem xs={12} sm={12} md={6}>
-                        
-                      </GridItem>
-                      <GridItem xs={12} sm={12} md={6}>
                         <Grid item xs={12}>
                           <CustomInput
                             labelText="Schedule Title"
@@ -112,7 +109,7 @@ var ct = props.ctr;
                           />
                           </Grid>
                           <MuiPickersUtilsProvider utils={DateFnsUtils}>
-                            <Grid item xs={6}>
+                            <Grid item xs={12}>
                               <KeyboardDatePicker
                                 margin="normal"
                                 id="date-picker-dialog"
@@ -125,12 +122,15 @@ var ct = props.ctr;
                                 KeyboardButtonProps={{
                                   'aria-label': 'change date',
                                 }}
+                                formControlProps={{
+                                  fullWidth: true
+                                }}
                                 InputLabelProps={{
                                   className: classes.DandT,
                               }}
                               />
                               </Grid>
-                              <Grid item xs={6}>
+                              <Grid item xs={12}>
                               <KeyboardTimePicker
                                 margin="normal"
                                 id="time-picker"
@@ -141,6 +141,9 @@ var ct = props.ctr;
                                 className= {classes.DandT}
                                 KeyboardButtonProps={{
                                   'aria-label': 'change time',
+                                }}
+                                formControlProps={{
+                                  fullWidth: true
                                 }}
                                 InputLabelProps={{
                                   className: classes.DandT,
@@ -171,6 +174,22 @@ var ct = props.ctr;
                             >
                               Create new Schedule
                             </Button>
+                          </GridItem>
+                          <GridItem xs={12} sm={12} md={6} style={{maxHeight: 350, overflow: 'auto'}}>
+                            {ct.list.map((item) => { return(
+                              <List className={classes.root} key={item._id}>
+                                <ListItem>
+                                  <ListItemText primary={item.meeting_title} secondary={format(new Date(item.meeting_dateandtime),"E, MMM dd yyyy HH:mm '"+Intl.DateTimeFormat().resolvedOptions().timeZone+"'")} />
+                                  <ListItemAvatar button onClick={() => ct.copyToClipboard(item)}>
+                                    <Avatar>
+                                      <Share />
+                                    </Avatar>
+                                  </ListItemAvatar>
+                                </ListItem>
+                              <Divider />
+                              </List>
+                            )}
+                            )}
                           </GridItem>
                         </GridContainer>
                   </CardBody>
@@ -203,8 +222,7 @@ var ct = props.ctr;
                 ? Check
                 : Warning
             }
-          />,
-          <textarea ref={textAreaRef} id="myInput" style={{display:"none"}} value={ct.copyToCopy}/>
+          />
           )}
     </div>
   );
@@ -221,6 +239,7 @@ var ct = props.ctr;
       this.setDateAndTime = this.setDateAndTime.bind(this);
       this.copyToCopy = "";
 
+      this.refereshScheduleList();
       this.list = [];
       this.state = {
         TopicName: "",
@@ -244,8 +263,13 @@ var ct = props.ctr;
     }
 
   onChangetopic(e) {
+    var input = e.target.value;
+    var output = input.replace(/\w+/g, function(txt) {
+      // uppercase first letter and add rest unchanged
+      return txt.charAt(0).toUpperCase() + txt.substr(1);
+    }).replace(/\s/g, '');
       this.setState({
-          TopicName: e.target.value
+          TopicName: output
       });
     }
 
@@ -269,7 +293,8 @@ var ct = props.ctr;
             message: response.data.message,
             successful: true
           });
-          this.list = JSON.stringify(response.data.data);
+          //this.list = JSON.stringify(response.data.data);
+          this.list = response.data.data;
           console.log("List="+this.list);
         },
         error => {
@@ -288,10 +313,24 @@ var ct = props.ctr;
       );
   }
   
+  copyToClipboard(item){
+    console.log(item.meeting_dateandtime);
+    this.copyToCopy = "You are being Invited for "+item.meeting_title+"\r\n \r\nTime: "+format(new Date(item.meeting_dateandtime),"E, MMM dd yyyy HH:mm '"+Intl.DateTimeFormat().resolvedOptions().timeZone+"'")+"\r\n \r\nMeeting Link: https://meet.vatchit.in/"+item.meeting_title+"?Scheduled="+item._id+"\r\nMeeting Password: "+item.meeting_pass;
+    var tempInput = document.createElement("textarea");
+    tempInput.value = this.copyToCopy;
+    document.body.appendChild(tempInput);
+    tempInput.select();
+    document.execCommand("copy");
+    document.body.removeChild(tempInput);
+    this.setState({
+      successful: true,
+      message: "Invitation Copied Successfully"
+    });
+  }
+
   handleScheduling(e) {
     e.preventDefault();
     //this.form.validateAll();
-    this.copyToCopy = "You are being Invited by"+this.state.TopicName+" for "+this.state.TopicName+"\r\n \r\nTime: "+format(this.state.DateAndTime,"E, MMM dd yyyy HH:mm 'IST'")+"\r\n \r\nMeeting Link: https://meet.vatchit.in/"+this.state.TopicName+"\r\nMeeting Password: "+this.state.password;
     
     this.setState({
       message: "",
@@ -300,6 +339,13 @@ var ct = props.ctr;
 
     ScheduleService.schedule(this.state).then(
       response => {
+        this.copyToCopy = "You are being Invited for "+this.state.TopicName+"\r\n \r\nTime: "+format(this.state.DateAndTime,"E, MMM dd yyyy HH:mm 'IST'")+"\r\n \r\nMeeting Link: https://meet.vatchit.in/"+this.state.TopicName+"?Scheduled="+response.data.schedule_id+"\r\nMeeting Password: "+this.state.password;
+        var tempInput = document.createElement("textarea");
+        tempInput.value = this.copyToCopy;
+        document.body.appendChild(tempInput);
+        tempInput.select();
+        document.execCommand("copy");
+        document.body.removeChild(tempInput);
           this.setState({
             message: response.data.message,
             successful: true

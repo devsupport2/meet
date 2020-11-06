@@ -6,8 +6,13 @@ const API_URL = "http://localhost:3000/schedule/";
 class ScheduleService {
 
     getUserID(){
-      const jwtPayload = jwtDecode(localStorage.getItem("token"));
-      return jwtPayload.context.user.id;
+      if(localStorage.getItem("token")==null)
+      {
+        window.location.href="/Login";
+      }else{
+        const jwtPayload = jwtDecode(localStorage.getItem("token"));
+        return jwtPayload.context.user.id;
+      }
     }
 
     schedule(state) {

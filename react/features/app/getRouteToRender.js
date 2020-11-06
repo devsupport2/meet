@@ -16,6 +16,7 @@ import {
     isWelcomePageUserEnabled
 } from '../welcome';
 
+import { jitsiLocalStorage } from '@jitsi/js-utils';
 
 import {Login, Register}from "../login-signup";
 import { LandingPage } from '../LandingPage';
@@ -111,7 +112,12 @@ function _getWebConferenceRoute(state): ?Promise<Route> {
                     route.component = Register;
                     }
                 else if(path == "/Schedule"){
-                    route.component = Schedule;
+                        if (jitsiLocalStorage.getItem("token") == null)
+                        {
+                            route.component = Login;
+                        }else{
+                            route.component = Schedule;
+                        }
                     }
                 else {
                     route.component = Conference;

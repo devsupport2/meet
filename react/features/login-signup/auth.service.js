@@ -1,6 +1,6 @@
 import axios from "axios";
 
-const API_URL = "http://server1.ultrasmarthosting.net:3001/api/";
+const API_URL = "https://api.vatchit.in/api/";
 
 class AuthService {
   login(email, password) {

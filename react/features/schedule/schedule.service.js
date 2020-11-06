@@ -1,7 +1,7 @@
 import axios from "axios";
 import jwtDecode from 'jwt-decode';
 
-const API_URL = "http://server1.ultrasmarthosting.net:3001/schedule/";
+const API_URL = "https://api.vatchit.in/schedule/";
 
 class ScheduleService {
 

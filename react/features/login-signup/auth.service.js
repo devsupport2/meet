@@ -1,6 +1,6 @@
 import axios from "axios";
 
-const API_URL = "http://localhost:3000/api/";
+const API_URL = "http://server1.ultrasmarthosting.net:3001/api/";
 
 class AuthService {
   login(email, password) {

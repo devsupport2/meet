@@ -122,9 +122,6 @@ var ct = props.ctr;
                                 KeyboardButtonProps={{
                                   'aria-label': 'change date',
                                 }}
-                                formControlProps={{
-                                  fullWidth: true
-                                }}
                                 InputLabelProps={{
                                   className: classes.DandT,
                               }}
@@ -141,9 +138,6 @@ var ct = props.ctr;
                                 className= {classes.DandT}
                                 KeyboardButtonProps={{
                                   'aria-label': 'change time',
-                                }}
-                                formControlProps={{
-                                  fullWidth: true
                                 }}
                                 InputLabelProps={{
                                   className: classes.DandT,
@@ -180,7 +174,7 @@ var ct = props.ctr;
                               <List className={classes.root} key={item._id}>
                                 <ListItem>
                                   <ListItemText primary={item.meeting_title} secondary={format(new Date(item.meeting_dateandtime),"E, MMM dd yyyy HH:mm '"+Intl.DateTimeFormat().resolvedOptions().timeZone+"'")} />
-                                  <ListItemAvatar button onClick={() => ct.copyToClipboard(item)}>
+                                  <ListItemAvatar onClick={() => ct.copyToClipboard(item)}>
                                     <Avatar>
                                       <Share />
                                     </Avatar>

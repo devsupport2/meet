@@ -136,16 +136,16 @@ class Conference extends AbstractConference<Props, *> {
         document.title = `${this.props._roomName} | ${interfaceConfig.APP_NAME}`;
         this._start();
 
-        // if (jitsiLocalStorage.getItem("token") == null)
-        // {
-        //     window.location.href="/Login";
-        //     console.log("User Is Not Authenticated");
-        // }else{
-        //     let userAuth = APP.store.dispatch(setJWT(jitsiLocalStorage.getItem("token")));
-        //     userAuth.then(function(result) {
-        //         console.log("User Is Authenticated");
-        //     });
-        // }
+        if (jitsiLocalStorage.getItem("token") == null)
+        {
+            // window.location.href="/Login";
+            console.log("User Is Not Authenticated");
+        }else{
+            let userAuth = APP.store.dispatch(setJWT(jitsiLocalStorage.getItem("token")));
+            userAuth.then(function(result) {
+                console.log("User Is Authenticated");
+            });
+        }
     }
 
     /**

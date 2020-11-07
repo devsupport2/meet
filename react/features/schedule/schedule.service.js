@@ -1,7 +1,16 @@
 import axios from "axios";
 import jwtDecode from 'jwt-decode';
 
-const API_URL = "https://api.vatchit.in/schedule/";
+var API_URL;
+if(location.hostname === 'localhost') {
+  console.log("====Inside If");
+  API_URL = 'http://localhost:3000/schedule/';
+}
+else {
+  console.log("====Inside else");
+  API_URL = "https://api.vatchit.in/schedule/";
+}
+
 
 class ScheduleService {
 

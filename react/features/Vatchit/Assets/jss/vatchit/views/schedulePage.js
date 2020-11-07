@@ -120,6 +120,7 @@ const schedulePageStyle = {
 
   DandT: {
     color: '#aaaaaa',
+    width: '100%',
     "& .MuiInput-underline:before":{
       borderColor: "#D2D2D2 !important",
       borderWidth: "1px !important"

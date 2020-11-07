@@ -3,11 +3,11 @@ import axios from "axios";
 var API_URL;
 if(location.hostname === 'localhost') {
   console.log("====Inside If");
-  API_URL = 'http://localhost:3000/schedule/';
+  API_URL = 'http://localhost:3000/api/';
 }
 else {
   console.log("====Inside else");
-  API_URL = "https://api.vatchit.in/schedule/";
+  API_URL = "https://api.vatchit.in/api/";
 }
 
 

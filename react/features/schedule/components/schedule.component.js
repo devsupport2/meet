@@ -249,7 +249,7 @@ var ct = props.ctr;
     }
   
     setDateAndTime(e){
-      console.log("x:--"+JSON.stringify(e));
+      //console.log("x:--"+JSON.stringify(e));
       this.selectedDate = e;
       this.setState({
           DateAndTime: this.selectedDate
@@ -280,7 +280,7 @@ var ct = props.ctr;
   }
 
   refereshScheduleList(){
-    console.log("RefereshList");
+    //console.log("RefereshList");
     ScheduleService.getUsersSchedule().then(
       response => {
           this.setState({
@@ -289,7 +289,7 @@ var ct = props.ctr;
           });
           //this.list = JSON.stringify(response.data.data);
           this.list = response.data.data;
-          console.log("List="+this.list);
+          //console.log("List="+this.list);
         },
         error => {
           const resMessage =
@@ -308,8 +308,8 @@ var ct = props.ctr;
   }
   
   copyToClipboard(item){
-    console.log(item.meeting_dateandtime);
-    this.copyToCopy = "You are being Invited for "+item.meeting_title+"\r\n \r\nTime: "+format(new Date(item.meeting_dateandtime),"E, MMM dd yyyy HH:mm '"+Intl.DateTimeFormat().resolvedOptions().timeZone+"'")+"\r\n \r\nMeeting Link: https://meet.vatchit.in/"+item.meeting_title+"?Scheduled="+item._id+"\r\nMeeting Password: "+item.meeting_pass;
+    //console.log(item.meeting_dateandtime);
+    this.copyToCopy = "You are being Invited by "+item.name+"\r\nfor "+item.meeting_title+"\r\n \r\nTime: "+format(new Date(item.meeting_dateandtime),"E, MMM dd yyyy HH:mm '"+Intl.DateTimeFormat().resolvedOptions().timeZone+"'")+"\r\n \r\nMeeting Link: https://meet.vatchit.in/"+item.meeting_title+"?Scheduled="+item._id+"\r\nMeeting Password: "+item.meeting_pass;
     var tempInput = document.createElement("textarea");
     tempInput.value = this.copyToCopy;
     document.body.appendChild(tempInput);
@@ -333,7 +333,7 @@ var ct = props.ctr;
 
     ScheduleService.schedule(this.state).then(
       response => {
-        this.copyToCopy = "You are being Invited for "+this.state.TopicName+"\r\n \r\nTime: "+format(this.state.DateAndTime,"E, MMM dd yyyy HH:mm 'IST'")+"\r\n \r\nMeeting Link: https://meet.vatchit.in/"+this.state.TopicName+"?Scheduled="+response.data.schedule_id+"\r\nMeeting Password: "+this.state.password;
+        this.copyToCopy = "You are being Invited by "+response.data.name+"\r\nfor "+this.state.TopicName+"\r\n \r\nTime: "+format(this.state.DateAndTime,"E, MMM dd yyyy HH:mm 'IST'")+"\r\n \r\nMeeting Link: https://meet.vatchit.in/"+this.state.TopicName+"?Scheduled="+response.data.schedule_id+"\r\nMeeting Password: "+this.state.password;
         var tempInput = document.createElement("textarea");
         tempInput.value = this.copyToCopy;
         document.body.appendChild(tempInput);

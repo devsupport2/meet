@@ -67,7 +67,7 @@ const useStyles = makeStyles(styles);
             </GridItem>
             <GridItem md={6} >
               <Hidden mdDown>
-                <img src={landingBG} style={{ width: "115%", marginTop: "10%"}}/>
+                <img src={landingBG} style={{ width: "107%"}}/>
               </Hidden>
             </GridItem>
           </GridContainer>

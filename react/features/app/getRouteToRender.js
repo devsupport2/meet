@@ -106,10 +106,22 @@ function _getWebConferenceRoute(state): ?Promise<Route> {
             } else if (isSupportedBrowser()) {
                 let path = window.location.pathname;
                if(path == "/Login"){
-                route.component = Login;
+                        if (jitsiLocalStorage.getItem("token") == null)
+                        {
+                            route.component = Login;
+                        }else{
+                            route.component = LandingPage;
+                            window.history.pushState("", "", '/');
+                        }
                 }
                 else if(path == "/Register"){
-                    route.component = Register;
+                        if (jitsiLocalStorage.getItem("token") == null)
+                        {
+                            route.component = Register;
+                        }else{
+                            route.component = LandingPage;
+                            window.history.pushState("", "", '/');
+                        }
                     }
                 else if(path == "/Schedule"){
                         if (jitsiLocalStorage.getItem("token") == null)

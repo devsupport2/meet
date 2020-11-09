@@ -20,20 +20,14 @@ class ScheduleService {
         window.location.href="/Login";
       }else{
         const jwtPayload = jwtDecode(localStorage.getItem("token"));
-        return jwtPayload.context.user.id;
+        return jwtPayload.context.user;
       }
     }
 
     schedule(state) {
-        console.log(state);
-            //localStorage.removeItem("Schedules");
-            //console.log("json from lS"+JSON.stringify(localStorage.getItem("Schedules")));
-            //console.log("json from recent list"+JSON.stringify(localStorage.getItem("features/recent-list")));
-            //  var local = localStorage;
-            // for (var key in local) {
-            //   console.log(key);
-            // }
-            var user_id = this.getUserID();
+       // console.log(state);
+            var user = this.getUserID();
+            var user_id = user.id;
             var meeting_title = state.TopicName;
             var meeting_dateandtime = state.DateAndTime;
             var meeting_pass = state.password;
@@ -45,16 +39,20 @@ class ScheduleService {
                   meeting_pass
                 })
                 .then(response => {
+                  //console.log("Schedule ==="+JSON.stringify(response.data));
                   if (response.data.schedule_id) {
                     this.getUsersSchedule();
                   }
+                  response.data.name = user.name;
                   return response;
                 });
       }
 
       getUsersSchedule()
       {
-        var user_id = this.getUserID();
+        var user = this.getUserID();
+        var user_id = user.id;
+        var user_name = user.name;
         return axios
                 .post(API_URL + "getByUserId", {
                   user_id
@@ -62,6 +60,9 @@ class ScheduleService {
                 .then(response => {
                   if (response.data.success) {
                     var Schedules = response.data.data;
+                    Schedules.forEach(function (Item) {
+                      Item.name = user_name;
+                    });
                     localStorage.setItem("Schedules", JSON.stringify(Schedules));
                   }
                   return response;

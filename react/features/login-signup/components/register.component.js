@@ -231,7 +231,8 @@ var ct = props.ctr;
         password: "",
         country: "",
         successful: false,
-        message: ""
+        message: "",
+        lastName: ""
       };
     }
 
@@ -281,7 +282,7 @@ var ct = props.ctr;
     onChangeLastName(e) {
       console.log("username changed");
         this.setState({
-          userName: this.state.userName+" "+e.target.value
+          lastName: e.target.value
         });
       }
   
@@ -300,15 +301,12 @@ var ct = props.ctr;
     }
   
     handleRegister(e) {
-      console.log(document.getElementById("country").innerHTML);
-      this.setState({
-      country: document.getElementById("country").innerHTML
-      });
       e.preventDefault();
       console.log("handle register called");
       this.setState({
         message: "",
-        successful: false
+        successful: false,
+        userName: this.state.userName+" "+this.state.lastName
       });
   
       //this.form.validateAll();

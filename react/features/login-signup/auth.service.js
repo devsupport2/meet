@@ -48,6 +48,10 @@ class AuthService {
     });
   }
 
+  getCountries()
+  {
+    return axios.get(API_URL+"countries",{});
+  }
 
   getCurrentUser() {
     return JSON.parse(localStorage.getItem('token'));

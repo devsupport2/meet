@@ -21,6 +21,7 @@ import CardBody from "../../Vatchit/Components/Card/CardBody.js";
 import CardHeader from "../../Vatchit/Components/Card/CardHeader.js";
 import CardFooter from "../../Vatchit/Components/Card/CardFooter.js";
 import CustomInput from "../../Vatchit/Components/CustomInput/CustomInput.js";
+import CustomSelect from "../../Vatchit/Components/CustomSelect/CustomSelect.js";
 import Snackbar from "../../Vatchit/Components/Snackbar/SnackbarContent.js";
 
 import AuthService from "../auth.service";
@@ -64,15 +65,35 @@ var ct = props.ctr;
                   </CardHeader>
                   <CardBody>
                   <h3 className={classes.title}>Register</h3>
+                  <GridContainer justify="center">
+                      <GridItem xs={6} sm={6} md={6}>
                     <CustomInput
-                      labelText="Username..."
+                      labelText="First Name"
                       id="first"
                       formControlProps={{
                         fullWidth: true
                       }}
                       inputProps={{
                         type: "text",
-                        onChange: ct.onChangeUserName,
+                        onChange: ct.onChangeFirstName,
+                        // endAdornment: (
+                        //   <InputAdornment position="end">
+                        //     <People className={classes.inputIconsColor} />
+                        //   </InputAdornment>
+                        // )
+                      }}
+                    />
+                    </GridItem>
+                    <GridItem xs={6} sm={6} md={6}>
+                    <CustomInput
+                      labelText="Last Name"
+                      id="last"
+                      formControlProps={{
+                        fullWidth: true
+                      }}
+                      inputProps={{
+                        type: "text",
+                        onChange: ct.onChangeLastName,
                         endAdornment: (
                           <InputAdornment position="end">
                             <People className={classes.inputIconsColor} />
@@ -80,6 +101,8 @@ var ct = props.ctr;
                         )
                       }}
                     />
+                    </GridItem>
+                    </GridContainer>
                     <CustomInput
                       labelText="Email..."
                       id="email"
@@ -96,22 +119,29 @@ var ct = props.ctr;
                         )
                       }}
                     />
-                    <CustomInput
-                      labelText="Phone..."
-                      id="phone"
-                      formControlProps={{
-                        fullWidth: true
-                      }}
-                      inputProps={{
-                        onChange: ct.onChangePhone,
-                        type: "text",
-                        endAdornment: (
-                          <InputAdornment position="end">
-                            <Phone className={classes.inputIconsColor} />
-                          </InputAdornment>
-                        )
-                      }}
-                    />
+                    <GridContainer justify="center">
+                      <GridItem xs={4} sm={4} md={4}>
+                        <CustomSelect list={ct.countries} id="country" value="IN"/>
+                        </GridItem>
+                        <GridItem xs={8} sm={8} md={8}>
+                          <CustomInput
+                            labelText="Phone..."
+                            id="phone"
+                            formControlProps={{
+                              fullWidth: true
+                            }}
+                            inputProps={{
+                              onChange: ct.onChangePhone,
+                              type: "text",
+                              endAdornment: (
+                                <InputAdornment position="end">
+                                  <Phone className={classes.inputIconsColor} />
+                                </InputAdornment>
+                              )
+                            }}
+                          />
+                        </GridItem>
+                    </GridContainer>
                     <CustomInput
                       labelText="Password"
                       id="pass"
@@ -182,11 +212,13 @@ var ct = props.ctr;
       super(props);
 
       this.handleRegister = this.handleRegister.bind(this);
-      this.onChangeUserName = this.onChangeUserName.bind(this);
+      this.onChangeFirstName = this.onChangeFirstName.bind(this);
+      this.onChangeLastName = this.onChangeLastName.bind(this);
       this.onChangePhone = this.onChangePhone.bind(this);
       this.onChangeEmail = this.onChangeEmail.bind(this);
       this.onChangePassword = this.onChangePassword.bind(this);
   
+      this.countries = [];
       this.state = {
         userName: "",
         phone: "",
@@ -197,6 +229,27 @@ var ct = props.ctr;
       };
     }
 
+    componentDidMount() {
+      AuthService.getCountries().then(
+        response => {
+          if(response.data.success){
+            this.countries = response.data.countries;
+          }
+        },
+        error => {
+          const resMessage =
+            (error.response &&
+              error.response.data &&
+              error.response.data.message) ||
+            error.message ||
+            error.toString();
+          this.setState({
+            successful: false,
+            message: resMessage
+          });
+        }
+      );
+    }
   
     onChangePhone(e) {
       console.log("phone changed");
@@ -205,10 +258,17 @@ var ct = props.ctr;
       });
     }
 
-    onChangeUserName(e) {
+    onChangeFirstName(e) {
       console.log("username changed");
         this.setState({
           userName: e.target.value
+        });
+      }
+
+    onChangeLastName(e) {
+      console.log("username changed");
+        this.setState({
+          userName: this.state.userName+" "+e.target.value
         });
       }
   

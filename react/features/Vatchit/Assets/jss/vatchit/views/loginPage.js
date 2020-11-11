@@ -98,7 +98,7 @@ const signupPageStyle = {
   image1: {
     position: "absolute",
     bottom: "0px",
-    left: "-134px",
+    left: "-150px",
     zIndex: "99",
     width: "auto",
     height: "70%"

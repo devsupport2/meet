@@ -246,6 +246,7 @@ var ct = props.ctr;
       AuthService.getCountries().then(
         response => {
           if(response.data.success){
+            console.log("responseSuccess");
             this.countries = response.data.countries;
           }
         },

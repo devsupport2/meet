@@ -51,7 +51,14 @@ class AuthService {
 
   getCountries()
   {
-    return axios.get(API_URL+"countries",{});
+    //return axios.get(API_URL+"countries",{});
+    return axios.get(API_URL + "countries", {})
+      .then(response => {
+        if (response.data.success) {
+          console.log("countryOptained");
+        }
+        return response;
+      });
   }
 
   getCurrentUser() {

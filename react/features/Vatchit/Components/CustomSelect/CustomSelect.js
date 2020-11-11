@@ -30,14 +30,17 @@ export default function CustomSelect(props){
   const [opened, setOpened] = React.useState(false);
   
   const handleView = event => {
+    console.log("Handle View"+opened);
     setOpened(true);
   };
+
+
 
 
   const classes = useStyles();
   return (
     <div>
-      <FormControl fullWidth className={classes.selectFormControl}>
+      <FormControl fullWidth className={classes.selectFormControl} >
           <InputLabel
             htmlFor="simple-select"
             className={classes.selectLabel}

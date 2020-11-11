@@ -234,9 +234,15 @@ var ct = props.ctr;
         message: "",
         lastName: ""
       };
+      this.getCountry();
     }
 
     componentDidMount() {
+      this.getCountry();
+    }
+
+    getCountry(){
+      console.log("getCountrycalled");
       AuthService.getCountries().then(
         response => {
           if(response.data.success){

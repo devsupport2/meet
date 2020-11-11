@@ -31,13 +31,14 @@ class AuthService {
     localStorage.removeItem("token");
   }
 
-  register(name, phone, email, password) {
+  register(name, phone, email, password, country) {
     var profile_pic = "https://www.worldfuturecouncil.org/wp-content/uploads/2020/02/dummy-profile-pic-300x300-1.png";
     return axios.post(API_URL + "register", {
       name,
       email,
       phone,
       password,
+      country,
       profile_pic
     });
   }

@@ -121,7 +121,11 @@ var ct = props.ctr;
                     />
                     <GridContainer justify="center">
                       <GridItem xs={4} sm={4} md={4}>
-                        <CustomSelect list={ct.countries} id="country" value="IN"/>
+                        <CustomSelect list={ct.countries} id="country" value="IN" 
+                          inputProps={{ 
+                            onChange: ct.onChangeCountry,
+                          }}
+                        />
                         </GridItem>
                         <GridItem xs={8} sm={8} md={8}>
                           <CustomInput
@@ -217,6 +221,7 @@ var ct = props.ctr;
       this.onChangePhone = this.onChangePhone.bind(this);
       this.onChangeEmail = this.onChangeEmail.bind(this);
       this.onChangePassword = this.onChangePassword.bind(this);
+      this.onChangeCountry = this.onChangeCountry.bind(this);
   
       this.countries = [];
       this.state = {
@@ -224,6 +229,7 @@ var ct = props.ctr;
         phone: "",
         email: "",
         password: "",
+        country: "",
         successful: false,
         message: ""
       };
@@ -251,6 +257,13 @@ var ct = props.ctr;
       );
     }
   
+    onChangeCountry(e){
+      console.log("country changed"+e.target.value);
+      this.setState({
+        country: e.target.value
+      });
+    }
+
     onChangePhone(e) {
       console.log("phone changed");
       this.setState({
@@ -287,6 +300,10 @@ var ct = props.ctr;
     }
   
     handleRegister(e) {
+      console.log(document.getElementById("country").innerHTML);
+      this.setState({
+      country: document.getElementById("country").innerHTML
+      });
       e.preventDefault();
       console.log("handle register called");
       this.setState({
@@ -295,12 +312,13 @@ var ct = props.ctr;
       });
   
       //this.form.validateAll();
-  
+        console.log(JSON.stringify(this.state));
         AuthService.register(
           this.state.userName,
           this.state.phone,
           this.state.email,
-          this.state.password
+          this.state.password,
+          this.state.country
         ).then(
           response => {
             this.setState({

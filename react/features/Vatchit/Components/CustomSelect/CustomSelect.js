@@ -28,16 +28,22 @@ export default function CustomSelect(props){
   
   const [simpleSelect, setSimpleSelect] = React.useState("");
   const [open, setOpen] = React.useState(false);
-  const [open1, setOpen1] = React.useState(false);
   const handleSimple = event => {
-    console.log(event.target.value.countryCode);
+    //console.log(event.target.value.countryCode);
     var countryCode = event.target.value.countryCode;
     // event.target.value = countryCode;
+
     setSimpleSelect(countryCode);
+    var event = new Event("click", { bubbles: true });
+    document.getElementById(id).dispatchEvent(event);
     setOpen(false);
   };
   const handleView = event => {
     setOpen(true);
+  };
+
+  const handleChange = event => {
+    console.log("Event target change"+event.target.value);
   };
 
   const classes = useStyles();
@@ -59,11 +65,9 @@ export default function CustomSelect(props){
             }}
             value={simpleSelect}
             onClick={handleView}
-            open={open1}
-            inputProps={{
-              name: "simpleSelect",
-              id: id
-            }}
+            open={false}
+            id={id}
+            {...inputProps}
           >
 
           {list.map((item) => { return(

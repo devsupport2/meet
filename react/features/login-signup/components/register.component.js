@@ -12,6 +12,8 @@ import Phone from "@material-ui/icons/Phone";
 
 import Check from "@material-ui/icons/Check";
 import Warning from "@material-ui/icons/Warning";
+
+import AuthService from "../auth.service";
 // core components
 import GridContainer from "../../Vatchit/Components/Grid/GridContainer.js";
 import GridItem from "../../Vatchit/Components/Grid/GridItem.js";
@@ -23,8 +25,6 @@ import CardFooter from "../../Vatchit/Components/Card/CardFooter.js";
 import CustomInput from "../../Vatchit/Components/CustomInput/CustomInput.js";
 import CustomSelect from "../../Vatchit/Components/CustomSelect/CustomSelect.js";
 import Snackbar from "../../Vatchit/Components/Snackbar/SnackbarContent.js";
-
-import AuthService from "../auth.service";
 
 import styles from "../../Vatchit/Assets/jss/vatchit/views/loginPage.js";
 
@@ -223,6 +223,7 @@ var ct = props.ctr;
       this.onChangePassword = this.onChangePassword.bind(this);
       this.onChangeCountry = this.onChangeCountry.bind(this);
   
+      this.getCountry();
       this.countries = [];
       this.state = {
         userName: "",
@@ -234,7 +235,7 @@ var ct = props.ctr;
         message: "",
         lastName: ""
       };
-      this.getCountry();
+
     }
 
     componentDidMount() {

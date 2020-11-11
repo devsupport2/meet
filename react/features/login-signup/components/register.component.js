@@ -121,7 +121,7 @@ var ct = props.ctr;
                     />
                     <GridContainer justify="center">
                       <GridItem xs={4} sm={4} md={4}>
-                        <CustomSelect list={ct.countries} id="country" value="IN" 
+                        <CustomSelect list={ct.countries} id="country" value={ct.state.country}
                           inputProps={{ 
                             onChange: ct.onChangeCountry,
                           }}
@@ -258,7 +258,7 @@ var ct = props.ctr;
     }
   
     onChangeCountry(e){
-      console.log("country changed"+e.target.value);
+      console.log("country changed");
       this.setState({
         country: e.target.value
       });

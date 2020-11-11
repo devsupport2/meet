@@ -27,24 +27,12 @@ export default function CustomSelect(props){
   } = props;
   
   const [simpleSelect, setSimpleSelect] = React.useState("");
-  const [open, setOpen] = React.useState(false);
-  const handleSimple = event => {
-    //console.log(event.target.value.countryCode);
-    var countryCode = event.target.value.countryCode;
-    // event.target.value = countryCode;
-
-    setSimpleSelect(countryCode);
-    var event = new Event("click", { bubbles: true });
-    document.getElementById(id).dispatchEvent(event);
-    setOpen(false);
-  };
+  const [opened, setOpened] = React.useState(false);
+  
   const handleView = event => {
-    setOpen(true);
+    setOpened(true);
   };
 
-  const handleChange = event => {
-    console.log("Event target change"+event.target.value);
-  };
 
   const classes = useStyles();
   return (
@@ -63,9 +51,9 @@ export default function CustomSelect(props){
             classes={{
               select: classes.select
             }}
-            value={simpleSelect}
+            value={value}
+            //onChange={handleSimple}
             onClick={handleView}
-            open={false}
             id={id}
             {...inputProps}
           >
@@ -79,48 +67,19 @@ export default function CustomSelect(props){
               key={item.countryCode}
               value={item.countryCode}
             >
-              {item.countryCode} ({item.dialCode})
+              {/* {item.countryCode} ({item.dialCode}) */}
               {/* {item.name} ({item.dialCode}) */}
+              {opened ? 
+              (item.countryCode+" ("+item.dialCode+")") : 
+              (item.name+" ("+item.dialCode+")")
+              }
+              
             </MenuItem>
             )}
           )}
             
           </Select>
           </FormControl>
-          <FormControl fullWidth className={classes.select1}>
-          <Select
-            MenuProps={{
-              className: classes.selectMenu
-            }}
-            classes={{
-              select: classes.select
-            }}
-            open={open}
-            value={simpleSelect}
-            onChange={handleSimple}
-            inputProps={{
-              name: "simpleSelect",
-              id: "hiddenItem"
-            }}
-          >
-
-          {list.map((item) => { return(
-              <MenuItem
-              classes={{
-                root: classes.selectMenuItem,
-                selected: classes.selectMenuItemSelected
-              }}
-              key={item.countryCode}
-              value={item}
-            >
-              {/* {item.countryCode} ({item.dialCode}) */}
-              {item.name} ({item.dialCode})
-            </MenuItem>
-            )}
-          )}
-            
-          </Select>
-        </FormControl>
     </div>
         
   );

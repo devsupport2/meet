@@ -27,20 +27,19 @@ export default function CustomSelect(props){
   } = props;
   
   const [simpleSelect, setSimpleSelect] = React.useState("");
-  const [opened, setOpened] = React.useState(false);
+  const [opened, setOpened] = React.useState(true);
   
-  const handleView = event => {
-    console.log("Handle View"+opened);
-    setOpened(true);
+  const handleOpen = event => {
+      setOpened(false);
   };
 
-
-
-
+  const handleClose = event => {
+    setOpened(true);
+};
   const classes = useStyles();
   return (
     <div>
-      <FormControl fullWidth className={classes.selectFormControl} >
+      <FormControl fullWidth className={classes.selectFormControl}>
           <InputLabel
             htmlFor="simple-select"
             className={classes.selectLabel}
@@ -55,8 +54,8 @@ export default function CustomSelect(props){
               select: classes.select
             }}
             value={value}
-            //onChange={handleSimple}
-            onClick={handleView}
+            onOpen={handleOpen}
+            onClose={handleClose}
             id={id}
             {...inputProps}
           >

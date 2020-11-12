@@ -309,7 +309,7 @@ var ct = props.ctr;
   
   copyToClipboard(item){
     //console.log(item.meeting_dateandtime);
-    this.copyToCopy = "You are being Invited by "+item.name+"\r\nfor "+item.meeting_title+"\r\n \r\nTime: "+format(new Date(item.meeting_dateandtime),"E, MMM dd yyyy HH:mm '"+Intl.DateTimeFormat().resolvedOptions().timeZone+"'")+"\r\n \r\nMeeting Link: https://meet.vatchit.in/"+item.meeting_title+"?Scheduled="+item._id+"\r\nMeeting Password: "+item.meeting_pass;
+    this.copyToCopy = "You are being Invited by "+item.name+"\r\nfor "+item.meeting_title+"\r\n \r\nTime: "+format(new Date(item.meeting_dateandtime),"E, MMM dd yyyy HH:mm '"+Intl.DateTimeFormat().resolvedOptions().timeZone+"'")+"\r\n \r\nMeeting Link: https://"+location.hostname+(location.port ? ':'+location.port: '')+"/"+item.meeting_title+"?Scheduled="+item._id+"\r\nMeeting Password: "+item.meeting_pass;
     var tempInput = document.createElement("textarea");
     tempInput.value = this.copyToCopy;
     document.body.appendChild(tempInput);
@@ -333,7 +333,7 @@ var ct = props.ctr;
 
     ScheduleService.schedule(this.state).then(
       response => {
-        this.copyToCopy = "You are being Invited by "+response.data.name+"\r\nfor "+this.state.TopicName+"\r\n \r\nTime: "+format(this.state.DateAndTime,"E, MMM dd yyyy HH:mm 'IST'")+"\r\n \r\nMeeting Link: https://meet.vatchit.in/"+this.state.TopicName+"?Scheduled="+response.data.schedule_id+"\r\nMeeting Password: "+this.state.password;
+        this.copyToCopy = "You are being Invited by "+response.data.name+"\r\nfor "+this.state.TopicName+"\r\n \r\nTime: "+format(this.state.DateAndTime,"E, MMM dd yyyy HH:mm 'IST'")+"\r\n \r\nMeeting Link: https://"+location.hostname+(location.port ? ':'+location.port: '')+"/"+this.state.TopicName+"?Scheduled="+response.data.schedule_id+"\r\nMeeting Password: "+this.state.password;
         var tempInput = document.createElement("textarea");
         tempInput.value = this.copyToCopy;
         document.body.appendChild(tempInput);

@@ -230,7 +230,7 @@ var ct = props.ctr;
         phone: "",
         email: "",
         password: "",
-        country: "",
+        country: "IN",
         successful: false,
         message: "",
         lastName: ""

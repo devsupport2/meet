@@ -223,7 +223,7 @@ var ct = props.ctr;
       this.onChangePassword = this.onChangePassword.bind(this);
       this.onChangeCountry = this.onChangeCountry.bind(this);
   
-      this.getCountry();
+      // this.getCountry();
       this.countries = [];
       this.state = {
         userName: "",
@@ -238,9 +238,9 @@ var ct = props.ctr;
 
     }
 
-    componentDidMount() {
-      this.getCountry();
-    }
+    // componentDidMount() {
+    //   this.getCountry();
+    // }
 
     getCountry(){
       console.log("getCountrycalled");
@@ -349,8 +349,15 @@ var ct = props.ctr;
     }
 
     render() {
-      return (
-        <RegisterPage ctr={this}/>
+      this.getCountry().then(
+        response => {
+          return (
+            <RegisterPage ctr={this}/>
+          );
+        },
+        error => {
+         window.location.href = "/Register";
+        }
       );
     }
   }

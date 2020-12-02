@@ -1,0 +1,346 @@
+/* lg */ 
+@media (min-width: 1200px) {
+/* Make Navigation Toggle on Desktop Hover */
+
+
+}
+
+/* md */
+@media (min-width: 992px) and (max-width: 1199px) {
+
+/* Make Navigation Toggle on Desktop Hover */
+
+
+}
+
+
+/* sm */
+@media (min-width: 768px) and (max-width: 991px) {
+/* Make Navigation Toggle on Desktop Hover */
+
+
+}
+
+
+@media (max-width: 1060px){
+.welcome-area .header-text {
+    width: 92%;
+    padding-top: 80px;
+}
+
+
+.android-btn {
+    width: 200px;
+
+}
+    
+.appstore-btn {
+    width: 215px;
+
+}
+
+.appstore-btn small {
+    font-size: 55%;
+}
+
+    
+}
+
+
+
+@media (max-width: 576px){
+
+  .appstore-btn {
+     width: 100%;
+    border-radius: 50px;
+    width: 100%;
+    padding: 7px 20px 10px 60px;
+    display: block;
+    border-radius: 40px 40px 40px 40px;
+    margin-bottom: 20px;
+    margin-left: 0%;
+    margin-top: 0;
+}  
+
+.appstore-btn .btn-text {
+    margin-top: 0px;
+    
+}
+    
+}
+
+
+
+
+@media (max-width: 1140px){
+
+
+.welcome-area .header-text {
+    
+    padding-top: 140px;
+}
+
+
+.welcome-area .header-text {
+    padding-top: 100px;
+}
+
+
+.android-btn {
+    width: 200px;
+
+}
+
+.appstore-btn {
+    width: 224px;
+
+}
+    
+}
+
+
+
+
+@media (max-width: 1199px){
+
+
+.welcome-area .header-text .left-text {
+    margin-top: 10%;
+}
+    
+.welcome-area .header-text {
+    
+    padding-top: 140px;
+}
+
+
+.welcome-area .header-text {
+    padding-top: 100px;
+}
+
+
+.android-btn {
+    width: 200px;
+
+}
+
+.appstore-btn {
+    width: 224px;
+
+}
+    
+}
+
+
+
+
+
+@media (max-width: 1420px){
+
+
+.welcome-area .header-text .left-text {
+    margin-top: 22%;
+}
+    
+.welcome-area .header-text {
+    
+    padding-top: 140px;
+}
+
+
+.welcome-area .header-text {
+    padding-top: 100px;
+}
+
+
+.android-btn {
+    width: 200px;
+
+}
+
+.appstore-btn {
+    width: 224px;
+
+}
+    
+}
+
+
+
+/* xs */
+@media (max-width: 767px) {
+
+
+.logo img {
+    max-width: 40%;
+    /* text-align: initial; */
+    float: left;
+    top: 10px;
+    margin-top: 20px;
+    margin-left: 10px;
+}
+
+
+.appstore-btn {
+    width: 100%;
+
+}
+
+.android-btn {
+    width: 100%;
+    padding: 7px 20px 10px 60px;
+    display: block;
+    border-radius: 40px 40px 40px 40px;
+    margin-bottom: 20px;
+}
+
+.welcome-area .header-text h1 {
+
+    text-align: center;
+
+    font-size: 34px;
+    line-height: 38px;
+
+}
+    
+
+.welcome-area .header-text p {
+
+    text-align: center;
+
+    font-size: 16px;
+    
+    line-height: 26px;
+
+}
+
+
+a.main-button-slider {
+
+    display: block;
+text-align: center;
+    margin-bottom: 20px;
+    width: 100%;
+    /* margin-left: 10px; */
+}
+
+a.signup-button-slider {
+   display: block;
+text-align: center;
+    width: 100%;
+    margin-left: 0px;
+}
+    
+
+
+#about {
+    padding: 0px 0px;
+  
+}
+    
+
+.signup .signup-content {
+    padding: 120px 0px 80px 0px;
+}
+    
+}
+
+@media (max-width:320px){
+    .android-btn {
+        width: 100%;
+        padding: 7px 20px 10px 30px;
+        display: block;
+        border-radius: 40px 40px 40px 40px;
+        margin-bottom: 20px;
+    }
+}
+/* XS Portrait */
+@media (max-width: 480px) {
+
+
+}
+
+
+
+
+
+
+
+
+
+/********************************
+ disable landscape mode mobile website 
+********************************/
+
+._1QQpsu {
+position: fixed;
+height: 100%;
+width: 100%;
+top: 0;
+left: 0;
+    background-image: linear-gradient(145deg, #0EDFF7 0%, #0DDFF7 100%);
+z-index: 1000;
+pointer-events: none;
+display: none;
+align-items: center;
+justify-content: center;
+}
+
+
+@media (min-width: 480px) and (orientation: landscape) {
+
+._3bWLGx {
+display: flex;
+pointer-events: initial;
+}
+}
+
+.mvW8vq {
+width: 80%;
+display: flex;
+flex-direction: column;
+align-items: center;
+justify-content: center;
+}
+
+._1U-Jli{
+background-image: url(../images/rotate_screen_icon.gif);
+background-position: center;
+background-size: contain;
+background-repeat: no-repeat;
+width: 30%;
+padding-bottom: 25.5%;
+}
+
+.FqIVIZ {
+color: #f1f1f1;
+font-size: 20px;
+text-align: center;
+margin-bottom: 10px;
+margin-top: 30px;
+}
+
+._1wxP6t {
+color: #f1f1f1;
+font-size: 14px;
+text-align: center;
+}
+
+
+
+
+
+
+@media (min-width: 1024px) and (orientation: landscape) {
+
+._1QQpsu {
+display: none;
+}
+    
+}
+
+
+/********************************
+ disable landscape mode mobile website 
+********************************/
+

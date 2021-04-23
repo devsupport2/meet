@@ -27,7 +27,7 @@ import UsageSection from "./Sections/UsageSection";
 import WorkSection from "./Sections/WorkSection.js";
 
 const logo = "/images/img/Logo-VatChit.png";
-const landingBG = "/images/img/landing-bg.png";
+const landingBG = "/images/img/landing-bg2-Ex.png";
 
 const dashboardRoutes = [];
 
